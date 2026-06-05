@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AiMax Car Guide - Get 20+ Dealer Quotes | Powered by QuoteMyAnything for Austin</title>
+    <meta name="description" content="AiMax gets you up to 20 dealer quotes. No bait & switch. No lot games. 20+ years automotive experience. Save time, money, get the EXACT car you want! Powered by QuoteMyAnything. Free Quotes On Anything!">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #f5f5f0;
+        }
+
+        /* 1960s NYC Luxury Theme */
+        :root {
+            --luxury-gold: #D4AF37;
+            --midnight-blue: #0a1929;
+            --charcoal: #2d2d2d;
+            --cream: #f5f5f0;
+            --burgundy: #800020;
+        }
+
+        .top-banner {
+            background: linear-gradient(135deg, var(--midnight-blue) 0%, var(--charcoal) 100%);
+            color: var(--luxury-gold);
+            padding: 12px 20px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 2px;
+            border-bottom: 3px solid var(--luxury-gold);
+            font-family: 'Courier New', monospace;
+        }
+
+        /* AiMax Mascot - Sharp 1960s NYC Gentleman */
+        .aimax-mascot {
+            display: inline-block;
+            font-size: 80px;
+            animation: aimaxNod 3s ease-in-out infinite;
+            filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.3));
+        }
+
+        @keyframes aimaxNod {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-3deg) scale(1.05); }
+            50% { transform: rotate(0deg) scale(1); }
+            75% { transform: rotate(3deg) scale(1.05); }
+        }
+
+        /* Improved City Animation - Taller, Better Visibility */
+        .city-scene {
+            position: relative;
+            height: 220px;
+            background: linear-gradient(to bottom, #1a365d 0%, #0f172a 100%);
+            overflow: hidden;
+            border-bottom: 4px solid var(--luxury-gold);
+        }
+
+        .skyline {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(to top, #0a0a0a 0%, transparent 100%);
+        }
+
+        /* Road with lane markings */
+        .skyline::after {
+            content: '';
+            position: absolute;
+            bottom: 70px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: repeating-linear-gradient(
+                to right,
+                transparent,
+                transparent 20px,
+                rgba(255, 255, 255, 0.3) 20px,
+                rgba(255, 255, 255, 0.3) 40px
+            );
+        }
+
+        .building {
+            position: absolute;
+            bottom: 0;
+            background: linear-gradient(to top, #1a1a1a, #2d2d2d);
+            box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .building-1 { left: 5%; width: 70px; height: 120px; }
+        .building-2 { left: 20%; width: 55px; height: 95px; }
+        .building-3 { left: 35%; width: 85px; height: 140px; }
+        .building-4 { left: 55%; width: 65px; height: 105px; }
+        .building-5 { left: 70%; width: 75px; height: 125px; }
+        .building-6 { left: 88%; width: 60px; height: 90px; }
+
+        .window {
+            position: absolute;
+            width: 6px;
+            height: 8px;
+            background: var(--luxury-gold);
+            opacity: 0.7;
+            animation: flicker 4s ease-in-out infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Luxury Car Driving - Fixed Direction with Modern Cars */
+        .luxury-car-1 {
+            position: absolute;
+            font-size: 60px;
+            bottom: 85px;
+            animation: smoothDriveRight 14s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            filter: drop-shadow(0 8px 20px rgba(212, 175, 55, 0.5));
+        }
+
+        .luxury-car-2 {
+            position: absolute;
+            font-size: 55px;
+            bottom: 92px;
+            animation: smoothDriveRight 18s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            animation-delay: 6s;
+            filter: drop-shadow(0 8px 20px rgba(0, 200, 255, 0.4));
+        }
+
+        .luxury-car-3 {
+            position: absolute;
+            font-size: 50px;
+            bottom: 98px;
+            animation: smoothDriveRight 22s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            animation-delay: 12s;
+            filter: drop-shadow(0 6px 15px rgba(255, 50, 50, 0.4));
+        }
+
+        /* Drive LEFT to RIGHT (fixed!) */
+        @keyframes smoothDriveRight {
+            0% { 
+                transform: translateX(-150px) scaleX(1);
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            95% {
+                opacity: 1;
+            }
+            100% { 
+                transform: translateX(calc(100vw + 150px)) scaleX(1);
+                opacity: 0;
+            }
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 25px 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--luxury-gold);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--midnight-blue);
+            font-family: 'Georgia', serif;
+            letter-spacing: -1px;
+        }
+
+        .logo-accent {
+            color: var(--luxury-gold);
+            font-style: italic;
+        }
+
+        .header-cta {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-luxury {
+            background: linear-gradient(135deg, var(--luxury-gold) 0%, #b8941e 100%);
+            color: var(--midnight-blue);
+            padding: 16px 35px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 800;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            letter-spacing: 1px;
+            font-family: 'Courier New', monospace;
+            border: 2px solid var(--midnight-blue);
+        }
+
+        .btn-luxury:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--cream) 0%, #e8e8e0 100%);
+            padding: 80px 20px 100px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><path d="M0,400 Q300,300 600,400 T1200,400 L1200,800 L0,800 Z" fill="rgba(212,175,55,0.03)"/></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 58px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            font-weight: 900;
+            color: var(--midnight-blue);
+            font-family: 'Georgia', serif;
+        }
+
+        .hero-text .subtitle {
+            font-size: 22px;
+            margin-bottom: 35px;
+            color: var(--charcoal);
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .vintage-badge {
+            background: var(--burgundy);
+            color: var(--luxury-gold);
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 800;
+            font-size: 13px;
+            display: inline-block;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            font-family: 'Courier New', monospace;
+            border: 2px solid var(--luxury-gold);
+        }
+
+        .hero-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .hero-features li {
+            padding: 15px 0;
+            font-size: 19px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            color: var(--charcoal);
+            font-family: 'Georgia', serif;
+        }
+
+        .hero-features li::before {
+            content: '✓';
+            background: var(--luxury-gold);
+            color: var(--midnight-blue);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            flex-shrink: 0;
+            font-size: 20px;
+        }
+
+        .form-card {
+            background: white;
+            padding: 45px;
+            border-radius: 8px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            border: 3px solid var(--luxury-gold);
+        }
+
+        .form-card h2 {
+            color: var(--midnight-blue);
+            font-size: 32px;
+            margin-bottom: 12px;
+            font-weight: 900;
+            font-family: 'Georgia', serif;
+        }
+
+        .form-card .subtext {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        .aimax-says {
+            background: linear-gradient(135deg, #fff8e7 0%, #f5f0e0 100%);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--luxury-gold);
+        }
+
+        .aimax-says-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .aimax-says-text {
+            color: var(--charcoal);
+            font-size: 15px;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--midnight-blue);
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'Courier New', monospace;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: 'Georgia', serif;
+            transition: all 0.2s;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--luxury-gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--luxury-gold) 0%, #b8941e 100%);
+            color: var(--midnight-blue);
+            padding: 20px;
+            border: 2px solid var(--midnight-blue);
+            border-radius: 4px;
+            font-size: 18px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            letter-spacing: 1px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        /* FAQ Section - Focus on Key Value */
+        .faq-section {
+            background: white;
+            padding: 80px 20px;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: linear-gradient(135deg, #fff8e7 0%, white 100%);
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 5px solid var(--luxury-gold);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .faq-question {
+            color: var(--midnight-blue);
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            font-family: 'Georgia', serif;
+        }
+
+        .faq-answer {
+            color: var(--charcoal);
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .faq-highlight {
+            background: var(--luxury-gold);
+            color: var(--midnight-blue);
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-weight: 700;
+        }
+
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--midnight-blue);
+            text-align: center;
+            font-weight: 900;
+            font-family: 'Georgia', serif;
+        }
+
+        .trust-bar {
+            background: var(--midnight-blue);
+            padding: 50px 20px;
+            border-top: 3px solid var(--luxury-gold);
+            border-bottom: 3px solid var(--luxury-gold);
+        }
+
+        .trust-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .trust-item {
+            text-align: center;
+        }
+
+        .trust-item .number {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--luxury-gold);
+            display: block;
+            font-family: 'Georgia', serif;
+        }
+
+        .trust-item .label {
+            color: #cbd5e1;
+            font-weight: 700;
+            font-size: 13px;
+            margin-top: 10px;
+            letter-spacing: 2px;
+            font-family: 'Courier New', monospace;
+        }
+
+        footer {
+            background: var(--charcoal);
+            color: #cbd5e1;
+            padding: 60px 20px 30px;
+            border-top: 3px solid var(--luxury-gold);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            .hero-text h1 {
+                font-size: 42px;
+            }
+            .aimax-mascot {
+                font-size: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- QMA cross-nav (amazing unified funnel): access main site, Gemini video, quick email form, other services without leaving the experience -->
+    <nav class="bg-zinc-950 text-white text-xs py-1 px-3" style="font-family: system-ui, sans-serif;">
+      <div class="max-w-5xl mx-auto flex justify-between items-center">
+        <a href="index.html" style="font-weight:700; color:#fff;">QuoteMyAnything <span style="font-size:9px; opacity:.7;">Free Quotes On Anything!</span></a>
+        <span>
+          <a href="index.html#quick-form" style="color:#34d399; margin-right:8px;">🚀 Get Free Quotes (emails us)</a>
+          <a href="index.html" style="color:#34d399; margin-right:8px;">Watch Gemini Video + All Services</a>
+          <button id="hamburger-btn" style="background:#111; color:#fff; border:none; padding:2px 6px; border-radius:3px; cursor:pointer;" aria-label="More">☰</button>
+        </span>
+      </div>
+      <div id="mobile-menu" class="hidden max-w-5xl mx-auto mt-1 bg-zinc-900 p-2 text-[10px] rounded" style="font-family: system-ui;">
+        <a href="index.html#quick-form" style="color:#34d399; display:block;">Quick lead form that emails us + the Gemini commercial</a>
+        <a href="roofing.html" style="color:#ddd; display:block;">Roofing • HVAC • Solar • Plumbing • All 11 services</a>
+        <a href="hvac-calculator.html" style="color:#ddd; display:block;">Free calculators &amp; estimators</a>
+      </div>
+    </nav>
+    <div class="top-banner">
+        ⚡ 20+ YEARS AUTOMOTIVE EXPERIENCE • UP TO 20 DEALER QUOTES • NO BAIT & SWITCH GUARANTEED ⚡
+    </div>
+
+    <!-- NYC Cityscape with Luxury Cars -->
+    <div class="city-scene">
+        <div class="skyline">
+            <div class="building building-1"></div>
+            <div class="building building-2"></div>
+            <div class="building building-3"></div>
+            <div class="building building-4"></div>
+            <div class="building building-5"></div>
+            <div class="building building-6"></div>
+        </div>
+        <!-- Modern Luxury Cars Driving Through City -->
+        <div class="luxury-car-1" title="Cybertruck">⚡🛻</div>
+        <div class="luxury-car-2" title="Tesla Model 3">🔋🚗</div>
+        <div class="luxury-car-3" title="Luxury Sports Car">🏎️💨</div>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                AiMax <span class="logo-accent">CarAi Guide</span>
+            </div>
+            <div class="header-cta">
+                <a href="#contact" class="btn-luxury">START FREE</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <!-- AiMax Mascot - 1960s Sharp Dressed Gentleman -->
+                <div class="aimax-mascot" title="AiMax - Your CarAi Guide">
+                    🎩🤵👔
+                </div>
+                
+                <div class="vintage-badge">
+                    EST. 2004 • 20+ YEARS AUTO EXPERIENCE
+                </div>
+
+                <h1>Get The Car YOU Want. Not What The Dealer Switches You To.</h1>
+                <p class="subtitle">AiMax gets you up to 20 competitive dealer quotes. No games. No bait & switch. No lot pressure. With 20+ years in automotive, we've seen every trick. We protect YOU.</p>
+                
+                <ul class="hero-features">
+                    <li><strong>Save Your TIME:</strong> No dealership hopping. AiMax emails 20 dealers for you.</li>
+                    <li><strong>Save Your MONEY:</strong> Dealers compete = lower prices. Avg savings: $4,200.</li>
+                    <li><strong>Get YOUR Car:</strong> No bait & switch. Exact car, exact price, guaranteed.</li>
+                    <li><strong>20+ Years Experience:</strong> We know every dealer trick. We stop them.</li>
+                </ul>
+
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <a href="#contact" class="btn-luxury">🎩 START FREE</a>
+                </div>
+            </div>
+
+            <div class="form-card" id="contact">
+                <h2>🎩 Talk to AiMax</h2>
+                <p class="subtext">Get up to 20 dealer quotes • No bait & switch • 20+ years protecting buyers</p>
+                
+                <div class="aimax-says">
+                    <div class="aimax-says-header">
+                        <span style="font-size: 40px;">🎩</span>
+                        <strong style="color: var(--midnight-blue); font-size: 18px; font-family: Georgia, serif;">AiMax, Your CarAi Guide:</strong>
+                    </div>
+                    <p class="aimax-says-text">"In 20+ years, I've seen thousands of customers get switched at the lot. 'That car sold this morning' – classic trick. Not on my watch. I get you quotes on the EXACT car you want, lock in the price, and make sure that's what you drive home. No games."</p>
+                </div>
+                
+                <form id="leadForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="John Smith">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="512-555-1234" pattern="[0-9]{3}[-]?[0-9]{3}[-]?[0-9]{4}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="you@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="carwant">What Car Do You Want? *</label>
+                        <input type="text" id="carwant" name="carwant" required placeholder="2024 Tesla Model 3, White OR 2024 Cybertruck, Silver">
+                        <small style="color: #666; font-size: 13px;">Be specific! Year, make, model, trim, color. Examples: Tesla Model 3, Cybertruck, BMW M3, Porsche 911, etc.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Your Budget *</label>
+                        <select id="budget" name="budget" required>
+                            <option value="">Select budget...</option>
+                            <option value="under20k">Under $20,000</option>
+                            <option value="20k-30k">$20,000 - $30,000</option>
+                            <option value="30k-40k">$30,000 - $40,000</option>
+                            <option value="40k-50k">$40,000 - $50,000</option>
+                            <option value="50k-plus">$50,000+</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="submit-btn">🎩 GET MY 20 DEALER QUOTES →</button>
+                    <p style="text-align: center; font-size: 12px; color: #666; margin-top: 15px;">🔒 We protect you from bait & switch • 20+ years experience</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="trust-bar">
+        <div class="trust-content">
+            <div class="trust-item">
+                <span class="number">20+</span>
+                <span class="label">YEARS EXPERIENCE</span>
+            </div>
+            <div class="trust-item">
+                <span class="number">UP TO 20</span>
+                <span class="label">DEALER QUOTES</span>
+            </div>
+            <div class="trust-item">
+                <span class="number">$4.2K</span>
+                <span class="label">AVG SAVINGS</span>
+            </div>
+            <div class="trust-item">
+                <span class="number">ZERO</span>
+                <span class="label">BAIT & SWITCH</span>
+            </div>
+            <div class="trust-item">
+                <span class="number">1,000s</span>
+                <span class="label">PROTECTED</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section - Key Value Props -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 style="font-family: Georgia, serif; font-size: 48px; color: var(--midnight-blue); text-align: center; margin-bottom: 50px;">Why AiMax? Your Questions Answered.</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">❓ How does AiMax save me TIME?</div>
+                <div class="faq-answer">
+                    Instead of spending <span class="faq-highlight">20-40 hours</span> visiting dealerships, getting the runaround, and dealing with sales pressure, AiMax emails up to 20 dealers for you. <strong>You fill out one form. Dealers compete for your business.</strong> You get quotes in 24 hours. That's it. Your weekends are yours again.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">💰 How does AiMax save me MONEY?</div>
+                <div class="faq-answer">
+                    When dealers know they're competing with 19 others, they send their <span class="faq-highlight">BEST price first</span>. No negotiation games. Our customers save an average of <span class="faq-highlight">$4,200</span> compared to walking into one dealership. Plus, we negotiate add-ons (warranties, GAP, etc.) and save you another $2K-$5K. Total savings: <strong>$6K-$9K on average.</strong>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">🚗 What is "bait & switch" and how does AiMax stop it?</div>
+                <div class="faq-answer">
+                    Classic dealer trick: <em>"That car you saw online? Oh, it sold this morning. But look at this one..."</em> (costs $5K more). With AiMax, quotes are for <span class="faq-highlight">SPECIFIC VINs</span> – actual cars, not fake listings. Dealers know we're watching. They quote real cars at real prices. <strong>You get the EXACT car you wanted</strong>, or we find another dealer who has it.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">🎩 Why should I trust AiMax?</div>
+                <div class="faq-answer">
+                    <span class="faq-highlight">20+ years in automotive.</span> We've helped thousands of Texans avoid dealer games. We're not a dealership – we work for YOU. We make money when dealers pay us referral fees, not when you overpay. <strong>Your best deal = our reputation.</strong> Check our reviews. We've been doing this since 2004.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">⚡ How fast is this process?</div>
+                <div class="faq-answer">
+                    <strong>Day 1:</strong> You fill form (5 minutes).<br>
+                    <strong>Day 2:</strong> You get 5-20 dealer quotes.<br>
+                    <strong>Day 3:</strong> You pick the best one. AiMax confirms it's legit.<br>
+                    <strong>Day 4-7:</strong> You pick up/receive your car.<br>
+                    <br>
+                    Total time investment from you: <span class="faq-highlight">15-30 minutes</span>. VS traditional: 20-40 hours of dealership visits. You do the math.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">💎 What if I want premium add-ons negotiated too?</div>
+                <div class="faq-answer">
+                    That's our <span class="faq-highlight">Black Card service ($250)</span>. AiMax negotiates extended warranties, GAP insurance, maintenance plans, paint protection – all the stuff dealers markup 300-500%. We save Black Card clients an average of <span class="faq-highlight">$5,195</span> on add-ons alone. ROI: 2,078%. It's a no-brainer if you're buying warranties.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">🤔 Is this really FREE?</div>
+                <div class="faq-answer">
+                    <strong>YES.</strong> The basic service is 100% free to you. Dealers pay us a referral fee when you buy from them (typically $100-300). You pay NOTHING extra. The car costs the same whether you use us or walk in alone – except with us, you get <span class="faq-highlight">20 competing quotes</span> instead of 1 sales pitch. It's literally free money saving.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">🃍 Do you cover my area?</div>
+                <div class="faq-answer">
+                    We work with dealerships across <span class="faq-highlight">all of Texas</span>. Austin, Dallas, Houston, San Antonio, and everywhere in between. Our network includes 200+ vetted dealers statewide. If there's a car in Texas, AiMax will find it for you.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+            <p style="font-size: 24px; margin-bottom: 15px; color: var(--luxury-gold); font-family: Georgia, serif;"><strong>🎩 AiMax - Your CarAi Guide</strong></p>
+            <p style="margin-bottom: 10px;">20+ Years Protecting Texas Car Buyers</p>
+            <p style="margin-bottom: 30px;">We've helped thousands get the car they WANT at the price they DESERVE.</p>
+            <p style="font-size: 13px; opacity: 0.7; margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(212, 175, 55, 0.3);">
+                © 2026 AiMax CarAi Guide. Established 2004. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Add windows to buildings
+        document.querySelectorAll('.building').forEach(building => {
+            const height = building.offsetHeight;
+            const numWindows = Math.floor(height / 20);
+            for(let i = 0; i < numWindows; i++) {
+                const win = document.createElement('div');
+                win.className = 'window';
+                win.style.top = (15 + i * 20) + 'px';
+                win.style.left = (Math.random() > 0.5 ? 12 : 32) + 'px';
+                win.style.animationDelay = (Math.random() * 4) + 's';
+                building.appendChild(win);
+            }
+        });
+
+        // Form validation
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const phone = document.getElementById('phone').value;
+            const phoneRegex = /^[0-9]{3}[-]?[0-9]{3}[-]?[0-9]{4}$/;
+            
+            if (!phoneRegex.test(phone)) {
+                alert("AiMax needs a valid phone number to send your quotes.\n\nExample: 512-555-1234 or 5125551234");
+                return;
+            }
+            
+            const carwant = document.getElementById('carwant').value.trim();
+            if (carwant.length < 10) {
+                alert("Please be specific about the car you want!\n\nExample: 2024 Toyota Camry SE, Silver\n\nThe more detail, the better AiMax can find exact matches and prevent bait & switch!");
+                return;
+            }
+            
+            alert('🎩 Welcome!\n\nAiMax here. I\'ve got your request for:\n' + carwant + '\n\nI\'m emailing up to 20 dealers RIGHT NOW.\n\nYou\'ll receive competitive quotes within 24 hours.\n\nNo bait & switch. No games. Just the car you want at the best price.\n\nWith 20+ years experience, I\'ve got your back!\n\n- AiMax');
+            
+            event.target.reset();
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        // QMA hamburger nav toggle (to video, quick form, other services)
+        setTimeout(()=>{const b=document.getElementById('hamburger-btn'),m=document.getElementById('mobile-menu');if(b&&m){b.onclick=()=>m.classList.toggle('hidden');m.querySelectorAll('a').forEach(a=>a.onclick=()=>m.classList.add('hidden'));}},0);
+    </script>
+
+<div style="background:#0a1929; padding:40px 20px; text-align:center; border-top:3px solid #D4AF37;">
+  <h2 style="color:#D4AF37; margin-bottom:10px;">Ready to Get Your Car? Let QMA Connect You to Local Austin Auto Pros Too</h2>
+  <p style="color:#f5f5f0; max-width:600px; margin:0 auto 20px;">Used AiMax? Now get competing quotes for car buying, repair, insurance, or detailing from trusted local providers via QuoteMyAnything. Free for you.</p>
+  <form action="https://formspree.io/f/xpwzgqkd" method="POST" style="max-width:500px; margin:0 auto; text-align:left;">
+    <input type="hidden" name="site" value="quotemyanything.com">
+    <input type="hidden" name="service" value="auto">
+    <input type="text" name="name" placeholder="Your Name" required style="width:100%; padding:12px; margin:8px 0; background:#1a1a1a; border:1px solid #D4AF37; color:#f5f5f0; border-radius:8px;">
+    <input type="email" name="email" placeholder="Email" required style="width:100%; padding:12px; margin:8px 0; background:#1a1a1a; border:1px solid #D4AF37; color:#f5f5f0; border-radius:8px;">
+    <input type="tel" name="phone" placeholder="Phone" required style="width:100%; padding:12px; margin:8px 0; background:#1a1a1a; border:1px solid #D4AF37; color:#f5f5f0; border-radius:8px;">
+    <input type="text" name="zip" placeholder="ZIP (e.g. 78701)" required style="width:100%; padding:12px; margin:8px 0; background:#1a1a1a; border:1px solid #D4AF37; color:#f5f5f0; border-radius:8px;">
+    <textarea name="message" placeholder="Car details (make/model/year, buying or repair?)" style="width:100%; padding:12px; margin:8px 0; background:#1a1a1a; border:1px solid #D4AF37; color:#f5f5f0; border-radius:8px; height:80px;"></textarea>
+    <button type="submit" style="width:100%; padding:14px; background:#D4AF37; color:#0a1929; font-weight:700; border:none; border-radius:8px; font-size:16px; margin-top:8px;">Get My Auto Quotes via QMA</button>
+    <p style="font-size:9px; color:#888; text-align:center; margin-top:6px;">By submitting, you agree to be contacted by up to 3 local licensed auto pros in the greater Austin area. Reply STOP to unsubscribe. Message and data rates may apply. Your information is only shared with contractors for the purpose of providing quotes. We do not sell or share your data for any other reason.</p>
+  </form>
+  <p style="margin-top:12px; color:#D4AF37;"><a href="/moving.html" style="color:#D4AF37;">Or explore other QMA services →</a></p>
+</div>
+
+<footer style="text-align:center; padding:12px; font-size:11px; color:#555; background:#f5f5f0; border-top:1px solid #ddd;">
+  (737) 667-6844 • quotemyanything.com · Austin, TX • Free Quotes On Anything! • <a href="index.html" style="color:#0a1929;">Main site + Gemini video</a>
+</footer>
+
+</body>
+</html>
