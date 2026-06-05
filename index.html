@@ -33,9 +33,16 @@
     <!-- Header -->
     <div class="text-center mb-8 pt-6">
       <img src="assets/logos/qma_logo_wordmark.jpg" alt="Free Quotes On Anything! Logo - QuoteMyAnything" class="mx-auto mb-4 max-w-[320px] w-full h-auto rounded-lg shadow-xl">
+      <div class="flex justify-center mb-2">
+        <select id="lang-select" onchange="switchLang(this.value)" class="bg-zinc-900 border border-zinc-700 text-sm px-3 py-1 rounded text-zinc-300">
+          <option value="en">🇺🇸 English</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="zh">🇨🇳 中文</option>
+        </select>
+      </div>
       <div class="text-emerald-400 text-sm font-semibold uppercase tracking-widest mb-2">Free for Homeowners · Austin, TX</div>
-      <h1 class="text-5xl font-bold mb-3">Free Quotes On Anything!</h1>
-      <p class="text-zinc-400 text-lg">Get 3+ competing quotes from local pros in 60 seconds.<br>Always free. No spam. No signup.</p>
+      <h1 id="hero-slogan" class="text-5xl font-bold mb-3">Free Quotes On Anything!</h1>
+      <p id="hero-sub" class="text-zinc-400 text-lg">Get 3+ competing quotes from local pros in 60 seconds.<br>Always free. No spam. No signup.</p>
     </div>
 
     <!-- Trust Badges -->
@@ -89,7 +96,7 @@
 
     <!-- Services Grid -->
     <div class="mb-16">
-      <h2 class="text-2xl font-bold text-center mb-6">11+ Services Available in Austin</h2>
+      <h2 id="services-title" class="text-2xl font-bold text-center mb-6">11+ Services Available in Austin</h2>
       <div class="grid grid-cols-2 gap-3 text-sm">
         <div class="bg-zinc-900 p-4 rounded-2xl">🏠 Roof Replacement</div>
         <div class="bg-zinc-900 p-4 rounded-2xl">❄️ HVAC / AC Repair</div>
@@ -111,8 +118,8 @@
       <div class="text-center mb-6">
         <img src="assets/logos/qma_logo_icon.jpg" alt="QMA Logo" class="mx-auto mb-3 max-w-[120px] rounded-xl">
         <div class="text-emerald-400 text-xs tracking-[3px] font-semibold">NEW FOR STREAMING ADS</div>
-        <h2 class="text-3xl font-bold mt-1">Free Quotes On Anything!</h2>
-        <p class="text-zinc-400">Our catchy jingle for YouTube, CTV &amp; audio streaming ads</p>
+        <h2 id="jingle-title" class="text-3xl font-bold mt-1">Free Quotes On Anything!</h2>
+        <p id="jingle-desc" class="text-zinc-400">Our catchy jingle for YouTube, CTV &amp; audio streaming ads</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-6">
@@ -140,6 +147,21 @@
       <div class="mt-6 text-center">
         <a href="assets/ads/qma_30s_commercial.mp4" target="_blank" class="inline-block text-xs px-4 py-2 rounded-full border border-zinc-700 hover:bg-zinc-800">Download Full 30s Commercial (with improved VO)</a>
         <div class="text-[10px] text-zinc-500 mt-2">Use our logo + jingle in your campaigns • "Free Quotes On Anything!" is the hook</div>
+      </div>
+    </div>
+
+    <!-- Gemini AI Generated Commercial (new from Drive 5LUV Upload) -->
+    <div class="mb-12 bg-zinc-900 rounded-3xl p-8 border border-emerald-800">
+      <div class="text-center mb-4">
+        <div class="text-emerald-400 text-xs tracking-[3px] font-semibold">GEMINI AI GENERATED • TODAY</div>
+        <h2 id="gemini-title" class="text-2xl font-bold mt-1">New QMA Commercial — Made with Gemini</h2>
+        <p id="gemini-desc" class="text-zinc-400 text-sm">10s spot for streaming ads. Fresh from Gemini video gen.</p>
+      </div>
+      <div class="max-w-2xl mx-auto">
+        <video controls playsinline class="w-full rounded-2xl bg-black border border-zinc-700" poster="assets/logos/qma_logo_icon.jpg">
+          <source src="assets/gemini/gemini_qma_commercial.mp4" type="video/mp4">
+        </video>
+        <div class="text-[10px] text-zinc-500 mt-2 text-center">Also available: QMA new video 2 in assets. Upload these to YouTube via 5LUV for ads.</div>
       </div>
     </div>
 
@@ -233,7 +255,61 @@
       } else if (consent === 'true') {
         initAnalytics();
       }
+      // init language from local or browser
+      const savedLang = localStorage.getItem('qma_lang') || (navigator.language || 'en').slice(0,2);
+      const sel = document.getElementById('lang-select');
+      if (sel) {
+        if (['es','zh'].includes(savedLang)) sel.value = savedLang;
+        switchLang(sel.value);
+      }
     });
+
+    // === i18n for top USA languages (EN, ES, ZH) ===
+    const translations = {
+      en: {
+        'hero-slogan': 'Free Quotes On Anything!',
+        'hero-sub': 'Get 3+ competing quotes from local pros in 60 seconds.<br>Always free. No spam. No signup.',
+        'services-title': '11+ Services Available in Austin',
+        'jingle-title': 'Free Quotes On Anything!',
+        'jingle-desc': 'Our catchy jingle for YouTube, CTV & audio streaming ads',
+        'gemini-title': 'New QMA Commercial — Made with Gemini',
+        'gemini-desc': '10s spot for streaming ads. Fresh from Gemini video gen.'
+      },
+      es: {
+        'hero-slogan': '¡Cotizaciones Gratis de Cualquier Cosa!',
+        'hero-sub': 'Obtén 3+ cotizaciones competitivas de pros locales en 60 segundos.<br>Siempre gratis. Sin spam. Sin registro.',
+        'services-title': '11+ Servicios Disponibles en Austin',
+        'jingle-title': '¡Cotizaciones Gratis de Cualquier Cosa!',
+        'jingle-desc': 'Nuestro jingle pegajoso para anuncios en YouTube, CTV y streaming de audio',
+        'gemini-title': 'Nuevo Comercial QMA — Hecho con Gemini',
+        'gemini-desc': 'Spot de 10s para anuncios en streaming. Fresco de Gemini video gen.'
+      },
+      zh: {
+        'hero-slogan': '任何东西免费报价！',
+        'hero-sub': '60秒内从本地专业人士获取3+竞争报价。<br>永远免费。无垃圾邮件。无需注册。',
+        'services-title': '奥斯汀提供11+项服务',
+        'jingle-title': '任何东西免费报价！',
+        'jingle-desc': '我们的YouTube、CTV和音频流媒体广告的朗朗上口广告曲',
+        'gemini-title': '新的QMA广告 — 使用Gemini制作',
+        'gemini-desc': '10秒流媒体广告片段。来自Gemini视频生成的新鲜内容。'
+      }
+    };
+
+    function switchLang(lang) {
+      localStorage.setItem('qma_lang', lang);
+      const t = translations[lang] || translations.en;
+      Object.keys(t).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = t[id];
+      });
+      // also update some labels if needed
+      const bannerP = document.querySelector('#cookie-banner p');
+      if (bannerP) {
+        if (lang === 'es') bannerP.innerHTML = 'Usamos almacenamiento local del navegador para analíticas básicas (vistas de página y estadísticas de formularios). Sin cookies. Sin seguimiento de terceros. <a href="#privacy" class="underline text-emerald-400">Política de Privacidad</a>';
+        else if (lang === 'zh') bannerP.innerHTML = '我们使用本地浏览器存储进行基本分析（页面浏览和表单统计）。无 cookie。无第三方跟踪。<a href="#privacy" class="underline text-emerald-400">隐私政策</a>';
+        else bannerP.innerHTML = 'We use local browser storage for basic analytics (page views & form stats). No cookies. No third-party tracking. <a href="#privacy" class="underline text-emerald-400">Privacy Policy</a>';
+      }
+    }
   </script>
 
 </body>
