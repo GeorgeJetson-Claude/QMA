@@ -1,4 +1,5 @@
 ACTION LIST — QMA Ready to Launch
+Updated: 2026-06-05 (CURRENT)
 ==================================
 
 ✓ DONE (in code, waiting for deploy):
@@ -49,36 +50,52 @@ ACTION LIST — QMA Ready to Launch
 
 ---
 
-TIMELINE:
+TIMELINE (Starting June 5, 2026):
 
-TODAY (Day 1):
-  • Zapier + Google Sheet setup (20 min)
-  • Find 5 contractors + email them (30 min)
+THIS WEEK (June 5-7):
+  • TODAY: Zapier + Google Sheet (20 min)
+  • TODAY: Email 5 roofing contractors (30 min)
+  • TOMORROW: Add contractor emails to lead_router.py (5 min)
+  • TOMORROW: Test full lead flow end-to-end (15 min)
+  • FRI: Run daily_workflow.py once, review Reddit leads (5 min)
 
-TOMORROW (Day 2):
-  • Contractors reply → add to lead_router.py (5 min)
-  • Run daily_workflow.py once (5 min)
-  • Submit test form, verify full flow (10 min)
+WEEK 2 (June 8-14):
+  • Daily: python3 daily_workflow.py --service roofing (2 min)
+  • Daily: Email new Reddit leads to contractors (5 min)
+  • Daily: Log in Google Sheet (2 min)
+  • Track: How many quotes contractors send back?
 
-DAYS 3-7:
-  • Run daily_workflow.py every morning (2 min)
-  • Email new Reddit leads to contractors manually (5 min)
-  • Track in Google Sheet (2 min)
-  • Log wins/quotes (5 min)
+WEEK 3 (June 15-21):
+  • Expand to 2 services (roofing + HVAC)
+  • Recruit 5 more contractors (plumbing, HVAC)
+  • Launch free-trial ads ($100-200 test budget)
+  • Track: CAC (cost per lead) from ads vs organic
 
 ONCE GIT PUSH WORKS:
-  • Push code to Vercel → quotemyanything.com goes live
-  • Free-trial ads launch (YouTube/Spotify $500/month)
-  • Real leads from web forms + organic from ads
+  • Deploy to Vercel → quotemyanything.com LIVE
+  • Real leads from web forms start flowing
+  • Leads combine: organic (Reddit) + paid ads
 
 ---
 
-LAUNCH SUCCESS =
-  25+ leads captured
-  + 3+ contractors signing up
-  + 1st quote sent
+LAUNCH SUCCESS MILESTONES:
 
-That's BETA READY. Month 1 goal: $1000 MRR.
+Week 1 (by June 12):
+  ✓ 5+ contractors recruited
+  ✓ Zapier live (leads → sheets → email alerts)
+  ✓ 10+ test leads sent to contractors
+  ✓ 1-2 quotes received
+
+Week 2 (by June 19):
+  ✓ 25+ leads captured (organic + ads)
+  ✓ 3+ contractors actively responding
+  ✓ 5+ quotes sent to homeowners
+  ✓ First lead marked "won"
+
+Month 1 (by July 5):
+  ✓ 100+ leads captured
+  ✓ 10+ active contractors
+  ✓ $1000+ MRR (goal)
 
 ---
 
