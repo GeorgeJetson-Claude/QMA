@@ -1,0 +1,88 @@
+ACTION LIST — QMA Ready to Launch
+==================================
+
+✓ DONE (in code, waiting for deploy):
+  • 20+ HTML pages (forms, calculators, legal)
+  • Lead scanner (Reddit agent finds 100+ posts/day)
+  • Lead router (matches leads to contractors by service+ZIP)
+  • Chat widget (emerald bubble, rule-based Q&A)
+  • Formspree integration (captures leads to email)
+
+⏳ WAITING FOR:
+  • Git push access restored → deploy to Vercel → site goes live
+
+🔥 YOU CAN DO TODAY (no code changes needed):
+
+1. SET UP ZAPIER (15 min)
+   ✓ Go to zapier.com → Create account
+   ✓ New Zap: Formspree (new email) → Google Sheets
+   ✓ Log all leads: name, email, phone, zip, service, date
+   ✓ Action 2: Also send email alert to leads@quotemyanything.com
+
+2. CREATE GOOGLE SHEET (5 min)
+   ✓ "QMA_Leads" sheet
+   ✓ Columns: timestamp, name, email, phone, zip, service, status
+   ✓ Share link to contractors later
+
+3. RECRUIT FIRST CONTRACTORS (30 min)
+   ✓ Find 5 roofing contractors (Austin, licensed, good reviews)
+   ✓ Email: "We send you qualified leads ($15-45/lead). Interested?"
+   ✓ Get their email addresses + service areas (ZIP codes)
+
+4. ADD CONTRACTORS TO CODE (5 min, when you have emails)
+   ✓ Edit: quotemyanything-social/agents/lead_router.py
+   ✓ Update CONTRACTOR_DB with their names, emails, ZIPs
+   ✓ git commit -m "Add [Contractor Name] to lead router"
+   ✓ (re-push when access restored)
+
+5. TEST LEAD FLOW (10 min)
+   ✓ Submit test form on roofing.html yourself
+   ✓ Check Formspree email (xpwzgqkd)
+   ✓ Verify Zapier sends to Google Sheets
+   ✓ Manually email test lead to contractor
+
+6. RUN LEAD AGENT (2 min)
+   ✓ cd quotemyanything-social/agents
+   ✓ python3 daily_workflow.py --service roofing
+   ✓ See 20-50 Reddit leads found, routed to contractors
+   ✓ Read draft replies (copy/paste to Reddit if you want)
+
+---
+
+TIMELINE:
+
+TODAY (Day 1):
+  • Zapier + Google Sheet setup (20 min)
+  • Find 5 contractors + email them (30 min)
+
+TOMORROW (Day 2):
+  • Contractors reply → add to lead_router.py (5 min)
+  • Run daily_workflow.py once (5 min)
+  • Submit test form, verify full flow (10 min)
+
+DAYS 3-7:
+  • Run daily_workflow.py every morning (2 min)
+  • Email new Reddit leads to contractors manually (5 min)
+  • Track in Google Sheet (2 min)
+  • Log wins/quotes (5 min)
+
+ONCE GIT PUSH WORKS:
+  • Push code to Vercel → quotemyanything.com goes live
+  • Free-trial ads launch (YouTube/Spotify $500/month)
+  • Real leads from web forms + organic from ads
+
+---
+
+LAUNCH SUCCESS =
+  25+ leads captured
+  + 3+ contractors signing up
+  + 1st quote sent
+
+That's BETA READY. Month 1 goal: $1000 MRR.
+
+---
+
+Questions? All docs are in /home/user/QMA/:
+  PLAN.md — why we're doing this
+  OPERATIONS.md — how to run daily
+  LAUNCH_CHECKLIST.md — full timeline + metrics
