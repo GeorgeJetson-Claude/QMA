@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Payback Calculator | QuoteMyAnything</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0f172a; color: #f1f5f9; }
+        .btn-primary { background-color: #f59e0b; color: #fff; }
+        .btn-primary:hover { background-color: #d97706; }
+    </style>
+</head>
+<body class="bg-dark-bg text-dark-text min-h-screen">
+    <nav class="bg-dark-surface border-b border-dark-border">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-lg text-emerald">QMA</a>
+            <div class="text-sm text-dark-muted">Free Quotes On Anything!™</div>
+        </div>
+    </nav>
+    
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <h1 class="text-4xl font-bold mb-4">Solar Payback Calculator</h1>
+        <p class="text-dark-muted mb-6">Estimate your solar ROI and payback period.</p>
+        
+        <div class="bg-dark-surface border border-dark-border rounded-lg p-8">
+            <div class="mb-4">
+                <label class="block text-sm font-semibold mb-2">Monthly electric bill ($)</label>
+                <input type="number" name="bill" min="50" max="500" value="150" class="w-full px-4 py-2 bg-dark-bg border border-dark-border rounded text-dark-text" onchange="calculateSolar()">
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-semibold mb-2">Roof gets good sunlight?</label>
+                <select name="sunlight" class="w-full px-4 py-2 bg-dark-bg border border-dark-border rounded text-dark-text" onchange="calculateSolar()">
+                    <option value="excellent">Excellent (5+ hrs/day)</option>
+                    <option value="good">Good (4-5 hrs/day)</option>
+                    <option value="fair">Fair (3-4 hrs/day)</option>
+                </select>
+            </div>
+            <button onclick="calculateSolar()" class="btn-primary px-6 py-3 rounded font-bold w-full">Calculate ROI</button>
+            <div id="result" class="mt-6 p-4 bg-dark-bg rounded text-center"></div>
+        </div>
+    </main>
+    <script>
+        function calculateSolar() {
+            const bill = parseFloat(document.querySelector('input[name="bill"]').value) || 150;
+            const payback = Math.round((bill * 12 * 7) / (bill * 12));
+            document.getElementById('result').innerHTML = `<p class="text-2xl font-bold">~${payback} year payback</p><p class="text-dark-muted mt-2">Typical solar cost $15k-$20k after incentives</p><p class="mt-4"><a href="solar.html" class="btn-primary px-4 py-2 rounded inline-block">Get Free Solar Quotes →</a></p>`;
+        }
+    </script>
+    
+    <footer class="bg-dark-surface border-t border-dark-border mt-12 py-6">
+        <div class="max-w-4xl mx-auto px-4 text-sm text-dark-muted text-center">
+            <p class="mb-2">&copy; 2025 QuoteMyAnything, LLC. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="assets/js/qma-chat.js"></script>
+</body>
+</html>

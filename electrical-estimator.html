@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical Work Estimator | QuoteMyAnything</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0f172a; color: #f1f5f9; }
+        .btn-primary { background-color: #f59e0b; color: #fff; }
+        .btn-primary:hover { background-color: #d97706; }
+    </style>
+</head>
+<body class="bg-dark-bg text-dark-text min-h-screen">
+    <nav class="bg-dark-surface border-b border-dark-border">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-lg text-emerald">QMA</a>
+            <div class="text-sm text-dark-muted">Free Quotes On Anything!™</div>
+        </div>
+    </nav>
+    
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <h1 class="text-4xl font-bold mb-4">Electrical Work Estimator</h1>
+        <p class="text-dark-muted mb-6">Rough cost estimates for common electrical work.</p>
+        
+        <div class="bg-dark-surface border border-dark-border rounded-lg p-8">
+            <div class="mb-6">
+                <h3 class="font-semibold mb-2">Select work type:</h3>
+                <div class="space-y-2">
+                    <button onclick="setEstimate('Outlet install', '150-300')" class="w-full text-left p-3 bg-dark-bg rounded border border-dark-border hover:border-emerald">Outlet/switch install: $150-300</button>
+                    <button onclick="setEstimate('Ceiling fan', '200-400')" class="w-full text-left p-3 bg-dark-bg rounded border border-dark-border hover:border-emerald">Ceiling fan install: $200-400</button>
+                    <button onclick="setEstimate('New breaker', '300-600')" class="w-full text-left p-3 bg-dark-bg rounded border border-dark-border hover:border-emerald">New circuit breaker: $300-600</button>
+                    <button onclick="setEstimate('Panel upgrade', '1500-3000')" class="w-full text-left p-3 bg-dark-bg rounded border border-dark-border hover:border-emerald">Panel upgrade: $1500-3000</button>
+                </div>
+            </div>
+            <div id="result" class="mt-6 p-4 bg-dark-bg rounded text-center"></div>
+        </div>
+    </main>
+    <script>
+        function setEstimate(work, range) {
+            document.getElementById('result').innerHTML = `<p class="text-xl font-semibold">${work}</p><p class="text-2xl font-bold text-emerald mt-2">$${range}</p><p class="text-dark-muted mt-2">Get exact quotes from licensed electricians</p><p class="mt-4"><a href="electrical.html" class="btn-primary px-4 py-2 rounded inline-block">Get Free Electrical Quotes →</a></p>`;
+        }
+    </script>
+    
+    <footer class="bg-dark-surface border-t border-dark-border mt-12 py-6">
+        <div class="max-w-4xl mx-auto px-4 text-sm text-dark-muted text-center">
+            <p class="mb-2">&copy; 2025 QuoteMyAnything, LLC. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="assets/js/qma-chat.js"></script>
+</body>
+</html>

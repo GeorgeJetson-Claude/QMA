@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC Savings Calculator | QuoteMyAnything</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0f172a; color: #f1f5f9; }
+        .btn-primary { background-color: #f59e0b; color: #fff; }
+        .btn-primary:hover { background-color: #d97706; }
+    </style>
+</head>
+<body class="bg-dark-bg text-dark-text min-h-screen">
+    <nav class="bg-dark-surface border-b border-dark-border">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-lg text-emerald">QMA</a>
+            <div class="text-sm text-dark-muted">Free Quotes On Anything!™</div>
+        </div>
+    </nav>
+    
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <h1 class="text-4xl font-bold mb-4">HVAC Savings Calculator</h1>
+        <p class="text-dark-muted mb-6">Estimate your annual HVAC costs and potential savings with a newer unit.</p>
+        
+        <div class="bg-dark-surface border border-dark-border rounded-lg p-8">
+            <div class="mb-4">
+                <label class="block text-sm font-semibold mb-2">Current system age (years)</label>
+                <input type="range" name="age" min="1" max="30" value="15" class="w-full" onchange="calculateHVAC()">
+                <span id="age-display">15 years</span>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-semibold mb-2">Monthly HVAC bill ($)</label>
+                <input type="number" name="bill" min="50" max="500" value="200" class="w-full px-4 py-2 bg-dark-bg border border-dark-border rounded text-dark-text" onchange="calculateHVAC()">
+            </div>
+            <button onclick="calculateHVAC()" class="btn-primary px-6 py-3 rounded font-bold w-full">Calculate Savings</button>
+            <div id="result" class="mt-6 p-4 bg-dark-bg rounded text-center"></div>
+        </div>
+    </main>
+    <script>
+        function calculateHVAC() {
+            const bill = parseFloat(document.querySelector('input[name="bill"]').value) || 200;
+            const age = document.querySelector('input[name="age"]').value;
+            document.getElementById('age-display').textContent = age + ' years';
+            const savings = Math.round(bill * 12 * 0.20);
+            document.getElementById('result').innerHTML = `<p class="text-2xl font-bold">~$${savings}/year potential savings</p><p class="text-dark-muted mt-2">New HVAC systems are 20-30% more efficient</p><p class="mt-4"><a href="hvac.html" class="btn-primary px-4 py-2 rounded inline-block">Get Free HVAC Quotes →</a></p>`;
+        }
+    </script>
+    
+    <footer class="bg-dark-surface border-t border-dark-border mt-12 py-6">
+        <div class="max-w-4xl mx-auto px-4 text-sm text-dark-muted text-center">
+            <p class="mb-2">&copy; 2025 QuoteMyAnything, LLC. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="assets/js/qma-chat.js"></script>
+</body>
+</html>
