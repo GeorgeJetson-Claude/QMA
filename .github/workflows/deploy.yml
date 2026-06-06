@@ -14,4 +14,6 @@ jobs:
         env:
           VERCEL_ORG_ID: team_3YtSEbUblz50OMLFKwRDU42J
           VERCEL_PROJECT_ID: prj_lPknd6uqHmkwxjDdrE6Y7wzpYDZQ
-        run: vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+        run: |
+          vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+          vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
