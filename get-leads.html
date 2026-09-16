@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Leads | QuoteMyAnything for Licensed Pros</title>
+<meta name="description" content="Licensed contractors: get exclusive homeowner leads from QuoteMyAnything. Pay only for matched jobs.">
+<link rel="canonical" href="https://quotemyanything.com/get-leads.html">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f172a;color:#f1f5f9;margin:0}
+.hero{background:linear-gradient(135deg,#1e3a5f 0%,#0f172a 70%);padding:52px 20px 28px;text-align:center}
+.badge{display:inline-block;background:#f59e0b;color:#0f172a;font-size:11px;font-weight:800;padding:4px 12px;border-radius:999px;letter-spacing:.08em;margin-bottom:14px}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800;margin:0 0 12px}
+h1 span{color:#10b981}
+.sub{color:#94a3b8;font-size:17px}
+.wrap{max-width:560px;margin:0 auto;padding:24px 20px 64px}
+.card{background:#1e293b;border:1px solid #334155;border-radius:16px;padding:28px}
+label{display:block;font-size:13px;font-weight:600;color:#94a3b8;margin:14px 0 6px}
+input,select,textarea{width:100%;padding:12px 14px;background:#0f172a;border:1px solid #334155;border-radius:10px;color:#f1f5f9;font-size:15px;box-sizing:border-box}
+.btn{display:block;width:100%;margin-top:20px;padding:16px;background:#10b981;border:none;border-radius:12px;color:#042f2e;font-size:17px;font-weight:800;cursor:pointer}
+.fine{font-size:11px;color:#64748b;margin-top:10px;text-align:center}
+.pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0 0}
+.pills span{background:#1e293b;border:1px solid #334155;border-radius:999px;padding:6px 12px;font-size:12px;color:#94a3b8}
+.success{display:none;text-align:center;padding:24px}
+.success h3{color:#10b981}
+footer{text-align:center;padding:20px;font-size:12px;color:#475569;border-top:1px solid #1e293b}
+footer a{color:#64748b}
+</style>
+</head>
+<body>
+<nav class="bg-zinc-900 border-b border-zinc-800 p-3 text-sm">
+  <div class="max-w-2xl mx-auto flex items-center justify-between">
+    <a href="index.html" class="font-bold flex items-center gap-2 text-white"><span class="inline-block w-5 h-5 bg-emerald-500 text-zinc-950 rounded text-center text-xs font-black leading-5">Q</span> QMA</a>
+    <a href="get-quote.html" class="text-amber-400 text-xs">Homeowners →</a>
+  </div>
+</nav>
+<div class="hero">
+  <div class="badge">FOR LICENSED PROS</div>
+  <h1>Get <span>real job leads</span></h1>
+  <p class="sub">Homeowners already asked for a quote. You compete on price and speed — not cold calls.</p>
+  <div class="pills">
+    <span>Per-lead or monthly</span>
+    <span>ZIP + service match</span>
+    <span>Austin first, then TX</span>
+  </div>
+</div>
+<div class="wrap">
+  <div class="card">
+    <h2 style="margin:0 0 4px;font-size:22px">Claim your service area</h2>
+    <p style="margin:0;color:#64748b;font-size:14px">We review license + service ZIPs, then turn leads on.</p>
+    <div id="form-wrap">
+      <form action="https://formspree.io/f/xdajvlvr" method="POST" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="site" value="quotemyanything.com">
+        <input type="hidden" name="page" value="get-leads-pros">
+        <input type="hidden" name="lead_type" value="contractor">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <label>Company name</label>
+        <input type="text" name="company" required placeholder="Austin Roof Co">
+        <label>Your name</label>
+        <input type="text" name="name" required placeholder="First last">
+        <label>Work email</label>
+        <input type="email" name="email" required placeholder="jobs@yourco.com">
+        <label>Phone</label>
+        <input type="tel" name="phone" required>
+        <label>Primary service</label>
+        <select name="service" required>
+          <option value="">Select...</option>
+          <option>Roofing</option>
+          <option>HVAC</option>
+          <option>Plumbing</option>
+          <option>Solar</option>
+          <option>Electrical</option>
+          <option>Painting</option>
+          <option>Lawn Care</option>
+          <option>Pest Control</option>
+          <option>Tree Service</option>
+          <option>Moving</option>
+          <option>House Cleaning</option>
+          <option>Other</option>
+        </select>
+        <label>ZIPs you cover (comma-separated)</label>
+        <input type="text" name="zips" required placeholder="78704, 78745, 78613">
+        <label>License # (optional)</label>
+        <input type="text" name="license" placeholder="TDLR / city license">
+        <label>How do you want to pay?</label>
+        <select name="plan">
+          <option>Per-lead</option>
+          <option>Monthly subscription</option>
+          <option>Not sure — call me</option>
+        </select>
+        <button type="submit" class="btn">Send my pro application →</button>
+        <p class="fine">We only send jobs in your trade and ZIP. No recycled junk lists.</p>
+      </form>
+    </div>
+    <div class="success" id="success-msg">
+      <h3>Application in.</h3>
+      <p>We'll email you next steps and a contractor sheet row.</p>
+    </div>
+  </div>
+</div>
+<footer>
+  © 2026 QuoteMyAnything · Austin, TX<br>
+  <a href="for-pros.html">Pro overview</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>
+</footer>
+<script>
+function handleSubmit(e){e.preventDefault();const form=e.target;fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}}).then(r=>{if(r.ok){document.getElementById('form-wrap').style.display='none';document.getElementById('success-msg').style.display='block';}else{form.submit();}}).catch(()=>form.submit());}
+</script>
+</body>
+</html>
