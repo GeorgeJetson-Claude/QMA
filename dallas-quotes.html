@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Free Quotes in Dallas TX | QuoteMyAnything</title><link rel="canonical" href="https://quotemyanything.com/dallas-quotes.html"><script src="https://cdn.tailwindcss.com"></script></head>
+<body class="bg-slate-900 text-slate-100"><nav class="bg-zinc-900 border-b border-zinc-800 p-3 text-sm"><div class="max-w-2xl mx-auto flex justify-between"><a href="index.html" class="font-bold text-white">Q QMA</a><a href="get-leads.html" class="text-emerald-400 text-xs">For Pros →</a></div></nav>
+<header class="text-center px-5 py-12"><div class="inline-block bg-emerald-500 text-emerald-950 text-xs font-extrabold px-3 py-1 rounded-full mb-4">DALLAS, TX — ALWAYS FREE</div><h1 class="text-4xl font-extrabold">Quote <span class="text-amber-400">anything</span> in Dallas</h1><p class="text-slate-400 mt-3">DFW homeowners: 3+ licensed locals compete. Always free.</p></header>
+<main class="max-w-xl mx-auto px-5 pb-16"><div class="bg-slate-800 border border-slate-700 rounded-2xl p-7"><div id="form-wrap"><form action="https://formspree.io/f/xpwzgqkd" method="POST" onsubmit="handleSubmit(event)" class="space-y-3">
+<input type="hidden" name="site" value="quotemyanything.com"><input type="hidden" name="page" value="dallas-quotes"><input type="hidden" name="city" value="Dallas">
+<input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+<label class="block text-sm text-slate-400">Service</label>
+<select name="service" required class="w-full p-3 rounded-lg bg-slate-900 border border-slate-600"><option value="">Select...</option><option>Roofing</option><option>HVAC</option><option>Plumbing</option><option>Solar</option><option>Electrical</option><option>Painting</option><option>Lawn Care</option><option>Pest Control</option><option>Tree Service</option><option>Moving</option><option>House Cleaning</option><option>Pool Service</option><option>Other / Anything</option></select>
+<label class="block text-sm text-slate-400">ZIP</label><input name="zip" required pattern="[0-9]{5}" maxlength="5" placeholder="75201" class="w-full p-3 rounded-lg bg-slate-900 border border-slate-600">
+<label class="block text-sm text-slate-400">Name</label><input name="name" required class="w-full p-3 rounded-lg bg-slate-900 border border-slate-600">
+<label class="block text-sm text-slate-400">Email</label><input type="email" name="email" required class="w-full p-3 rounded-lg bg-slate-900 border border-slate-600">
+<label class="block text-sm text-slate-400">Phone</label><input type="tel" name="phone" required class="w-full p-3 rounded-lg bg-slate-900 border border-slate-600">
+<textarea name="message" rows="3" class="w-full p-3 rounded-lg bg-slate-900 border border-slate-600"></textarea>
+<label class="flex gap-2 text-xs text-slate-400"><input type="checkbox" name="consent" required> Contact from up to 3 licensed local providers. STOP to opt out.</label>
+<button class="w-full py-4 rounded-xl bg-amber-500 text-slate-900 font-extrabold">Get Dallas quotes →</button></form></div>
+<div id="success-msg" class="hidden text-center py-8"><h3 class="text-emerald-400 text-xl font-bold">You're in.</h3></div></div></main>
+<footer class="text-center text-xs text-slate-500 py-6"><a href="leads-hub.html">Lead pages</a></footer>
+<script>function handleSubmit(e){e.preventDefault();const form=e.target;fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}}).then(r=>{if(r.ok){document.getElementById('form-wrap').style.display='none';document.getElementById('success-msg').classList.remove('hidden');}else form.submit();}).catch(()=>form.submit());}</script></body></html>
