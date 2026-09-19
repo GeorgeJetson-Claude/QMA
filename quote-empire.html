@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quote Anything We Built | QuoteMyAnything</title>
+<meta name="description" content="One form for every property we shipped: home services, travel, autos, med spa, AI tools. Free quotes on anything.">
+<link rel="canonical" href="https://quotemyanything.com/quote-empire.html">
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+<nav class="bg-zinc-900 border-b border-zinc-800 p-3 text-sm">
+  <div class="max-w-3xl mx-auto flex items-center justify-between">
+    <a href="index.html" class="font-bold flex items-center gap-2 text-white"><span class="inline-block w-5 h-5 bg-emerald-500 text-zinc-950 rounded text-center text-xs font-black leading-5">Q</span> QMA</a>
+    <a href="get-leads.html" class="text-emerald-400 text-xs">For Pros →</a>
+  </div>
+</nav>
+<header class="text-center px-5 pt-12 pb-8">
+  <p class="text-emerald-400 text-xs font-extrabold tracking-widest uppercase">Everything we built feeds this form</p>
+  <h1 class="text-4xl font-extrabold mt-3">Free quotes on <span class="text-amber-400">anything</span></h1>
+  <p class="text-slate-400 mt-3 max-w-xl mx-auto">Home fix. Travel. Cars. Med spa. AI tools. Local trades. One 60-second request. Always free for customers.</p>
+</header>
+<main class="max-w-3xl mx-auto px-5 pb-20">
+  <div class="grid md:grid-cols-2 gap-4 mb-10">
+    <a href="quote-home-fix.html" class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-600">
+      <div class="text-xs text-amber-400 font-bold uppercase">qma-home-fix</div>
+      <div class="font-bold text-lg mt-1">Home repairs</div>
+      <p class="text-sm text-slate-400">Roof, HVAC, plumbing, electrical, paint.</p>
+    </a>
+    <a href="quote-travel.html" class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-600">
+      <div class="text-xs text-amber-400 font-bold uppercase">qma-travel-advisor</div>
+      <div class="font-bold text-lg mt-1">Travel & trips</div>
+      <p class="text-sm text-slate-400">Flights, hotels, group trips, advisors.</p>
+    </a>
+    <a href="quote-auto.html" class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-600">
+      <div class="text-xs text-amber-400 font-bold uppercase">magnacars</div>
+      <div class="font-bold text-lg mt-1">Cars & auto</div>
+      <p class="text-sm text-slate-400">Buy, sell, detail, wrap, mechanic.</p>
+    </a>
+    <a href="quote-medspa.html" class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-600">
+      <div class="text-xs text-amber-400 font-bold uppercase">larkspur-med-spa</div>
+      <div class="font-bold text-lg mt-1">Med spa</div>
+      <p class="text-sm text-slate-400">Consults, packages, memberships.</p>
+    </a>
+    <a href="quote-rosie.html" class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-600">
+      <div class="text-xs text-amber-400 font-bold uppercase">rosie-ai</div>
+      <div class="font-bold text-lg mt-1">AI & creator tools</div>
+      <p class="text-sm text-slate-400">Build, automate, or quote a custom bot.</p>
+    </a>
+    <a href="get-quote.html" class="bg-slate-900 border border-emerald-800 rounded-2xl p-5 hover:border-emerald-500">
+      <div class="text-xs text-emerald-400 font-bold uppercase">quotemyanything</div>
+      <div class="font-bold text-lg mt-1">Universal quote</div>
+      <p class="text-sm text-slate-400">Anything else. 3+ local pros compete.</p>
+    </a>
+  </div>
+  <div class="bg-slate-900 border border-slate-700 rounded-2xl p-7">
+    <h2 class="text-2xl font-extrabold mb-1">Start here</h2>
+    <p class="text-slate-400 text-sm mb-5">Pick a category. We route the lead to the matching site + Formspree.</p>
+    <div id="form-wrap">
+      <form action="https://formspree.io/f/xpwzgqkd" method="POST" onsubmit="handleSubmit(event)" class="space-y-3">
+        <input type="hidden" name="site" value="quotemyanything.com">
+        <input type="hidden" name="page" value="quote-empire">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <label class="block text-sm text-slate-400">What do you want quoted?</label>
+        <select name="service" required class="w-full p-3 rounded-lg bg-slate-950 border border-slate-600">
+          <option value="">Select...</option>
+          <option>Home repair / trade</option>
+          <option>Travel</option>
+          <option>Auto / MagnaCars</option>
+          <option>Med spa</option>
+          <option>AI / Rosie / creator tools</option>
+          <option>Insurance</option>
+          <option>Other / Anything</option>
+        </select>
+        <label class="block text-sm text-slate-400">ZIP</label>
+        <input name="zip" required pattern="[0-9]{5}" maxlength="5" placeholder="78701" class="w-full p-3 rounded-lg bg-slate-950 border border-slate-600">
+        <label class="block text-sm text-slate-400">Name</label>
+        <input name="name" required class="w-full p-3 rounded-lg bg-slate-950 border border-slate-600">
+        <label class="block text-sm text-slate-400">Email</label>
+        <input type="email" name="email" required class="w-full p-3 rounded-lg bg-slate-950 border border-slate-600">
+        <label class="block text-sm text-slate-400">Phone</label>
+        <input type="tel" name="phone" required class="w-full p-3 rounded-lg bg-slate-950 border border-slate-600">
+        <textarea name="message" rows="3" placeholder="Describe the job, trip, car, or project." class="w-full p-3 rounded-lg bg-slate-950 border border-slate-600"></textarea>
+        <label class="flex gap-2 text-xs text-slate-400"><input type="checkbox" name="consent" required> I agree to be contacted by matched providers. Reply STOP to opt out.</label>
+        <button class="w-full py-4 rounded-xl bg-amber-500 text-slate-900 font-extrabold">Get My Free Quotes →</button>
+        <p class="text-center text-xs text-slate-500">No credit card. Always free for customers.</p>
+      </form>
+    </div>
+    <div id="success-msg" class="hidden text-center py-8">
+      <h3 class="text-emerald-400 text-xl font-bold">You're in.</h3>
+      <p class="text-slate-400 mt-2">We routed this to the right QMA property.</p>
+    </div>
+  </div>
+</main>
+<footer class="text-center text-xs text-slate-500 py-6 border-t border-slate-900">
+  © 2026 QuoteMyAnything · Austin, TX<br>
+  <a href="leads-hub.html">Lead pages</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>
+</footer>
+<script>
+function handleSubmit(e){e.preventDefault();const form=e.target;fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}}).then(r=>{if(r.ok){document.getElementById('form-wrap').style.display='none';document.getElementById('success-msg').classList.remove('hidden');}else form.submit();}).catch(()=>form.submit());}
+</script>
+</body>
+</html>
